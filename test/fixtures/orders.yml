@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  reserve_id: 1
+  name: MyString
+  tel: MyString
+  email: MyString
+  ItemDesc: MyString
+  reserve_date: 2021-12-20
+  reserve_time: 2021-12-20 16:14:52
+  use_status: 1
+  order_status: 1
+  Paytime: 2021-12-20
+  MerchanOrderNo: MyString
+  TradeNo: 1
+  Amt: 1
+  card4No: 1
+
+two:
+  user_id: 1
+  reserve_id: 1
+  name: MyString
+  tel: MyString
+  email: MyString
+  ItemDesc: MyString
+  reserve_date: 2021-12-20
+  reserve_time: 2021-12-20 16:14:52
+  use_status: 1
+  order_status: 1
+  Paytime: 2021-12-20
+  MerchanOrderNo: MyString
+  TradeNo: 1
+  Amt: 1
+  card4No: 1

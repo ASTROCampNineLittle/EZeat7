@@ -3,6 +3,15 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
 
+#Bundle Figaro Enum Pundit Devise Bullet Kaminari AASM
+gem 'devise', '~> 4.8', '>= 4.8.1'
+gem 'bullet', '~> 7.0'
+gem 'pundit', '~> 2.1', '>= 2.1.1'
+gem 'ruby-enum', '~> 0.9.0'
+gem 'aasm', '~> 5.2'
+gem 'kaminari', '~> 1.2', '>= 1.2.1'
+gem 'figaro', '~> 1.2'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.0"
 

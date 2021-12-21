@@ -1,0 +1,23 @@
+<%= form_with model: company do |form| %>
+  <div class="field">
+    <%= form.label :name, '公司名稱', class: 'label' %>
+    <%= form.text_field :name, class: 'input' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address, '公司地址', class: 'label' %>
+    <%= form.text_field :address, class: ' ' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tel, '聯絡電話', class: 'label' %>
+    <%= form.text_area :tel, class: ' ' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :manager_name, '負責人姓名', class: 'label' %>
+    <%= form.text_field :manager_name, class: ' ' %>
+  </div>
+
+  <%= form.submit class: 'button' %>
+<% end %>

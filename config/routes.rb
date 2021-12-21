@@ -4,6 +4,7 @@ devise_for :companies
 devise_for :users
 
 root 'pages#index'
+get 'search', to: 'pages#search'
 
 resources :companies do
   resources :projects

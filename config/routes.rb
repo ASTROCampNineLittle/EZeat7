@@ -6,11 +6,16 @@ devise_for :users
 
 root 'pages#index'
 
-
-resources :companies do
-  resources :projects
-  resources :stores
+namespace :backend do
+  resources :companies do
+    resources :stores do
+      resources :projects do
+        resources :offers
+      end
+    end
+  end
 end
+
 
 resources :stores
 

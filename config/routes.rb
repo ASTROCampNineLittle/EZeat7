@@ -15,4 +15,6 @@ end
 
 resources :stores
 
+resources :offers , only: [:index , :show]
+
 end

@@ -24,6 +24,7 @@ resources :stores
 resources :offers , only: [:index , :show] 
 resources :checks , only: [:index , :show]
 
-
+get 'myorder', to: 'stores#myorder'
+get 'verification', to: 'stores#verification'
 
 end

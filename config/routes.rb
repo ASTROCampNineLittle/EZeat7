@@ -7,10 +7,12 @@ devise_for :users
 root 'pages#index'
 
 namespace :backend do
-  resources :companies do
-    resources :stores do
-      resources :projects do
-        resources :offers
+  shallow do
+    resources :companies do
+      resources :stores do
+      #   resources :projects do
+      #     resources :offers
+      #   end
       end
     end
   end

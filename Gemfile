@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
 
+# Bundle friendly_id
+gem 'friendly_id', '~> 5.4', '>= 5.4.2'
+
 #Bundle Figaro Enum Pundit Devise Bullet Kaminari AASM
 gem 'devise', '~> 4.8', '>= 4.8.1'
 gem 'bullet', '~> 7.0'

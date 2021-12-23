@@ -27,7 +27,7 @@ module Newebpay
     def set_info()
       
       @info[:MerchantID] = @merchant_id
-      @info[:MerchantOrderNo] = "ezeat20210017"
+      @info[:MerchantOrderNo] = "ezeat20210019"
       @info[:Amt] = 100
       @info[:ItemDesc] = "5x餐卷好好吃"
       @info[:Email] = "dreamorange830@gmail.com"

@@ -5,9 +5,9 @@ module Newebpay
     # 4000-2211-1111-1111（一次付清測試卡號）
     
     def initialize( merchant_id: nil , key: nil, iv: nil)
-      @key = ENV["newebpay_key"] || key
-      @iv  = ENV["newebpay_iv"] || iv
-      @merchant_id = ENV["newebpay_merchant_id"] || merchant_id
+      @key = key || ENV["newebpay_key"] 
+      @iv  = iv || ENV["newebpay_iv"] 
+      @merchant_id = merchant_id || ENV["newebpay_merchant_id"] 
       @info = {}
       set_info()
     end

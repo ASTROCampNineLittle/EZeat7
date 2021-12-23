@@ -4,10 +4,10 @@ module Newebpay
     attr_accessor :info
     # 4000-2211-1111-1111（一次付清測試卡號）
     
-    def initialize
-      @key = "I2aNLz8ZvTIoZ0dFmdUoiuZnHOLXOuRb"
-      @iv = "CsgvvcZDk7x1OkcP"
-      @merchant_id = "MS328690401"
+    def initialize( merchant_id: nil , key: nil, iv: nil)
+      @key = ENV["newebpay_key"] || key
+      @iv  = ENV["newebpay_iv"] || iv
+      @merchant_id = ENV["newebpay_merchant_id"] || merchant_id
       @info = {}
       set_info()
     end
@@ -23,11 +23,15 @@ module Newebpay
 
     private
     
-    
+    def ezeat_ramdom_number
+      random = rand(0...1000).to_s
+      ezeat = "ezeat2021"
+      return ezeat.insert(-1,random)
+    end
+
     def set_info()
-      
       @info[:MerchantID] = @merchant_id
-      @info[:MerchantOrderNo] = "ezeat20210019"
+      @info[:MerchantOrderNo] = ezeat_ramdom_number.to_s
       @info[:Amt] = 100
       @info[:ItemDesc] = "5x餐卷好好吃"
       @info[:Email] = "dreamorange830@gmail.com"
@@ -80,11 +84,6 @@ module Newebpay
     end
   end
 end
-
-# # 即時付款完成後，以 form post 方式要導回的頁面
-# ReturnURL: "支付完成，返回商店頁面"
-# # 訂單完成後，以背景 post 回報訂單狀況
-# NotifyURL: "處理訂單的網址"
 
 # # ----選填區-----
 #   LINEPAY: 1,

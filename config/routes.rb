@@ -14,5 +14,9 @@ resources :companies do
 end
 
 resources :stores
+resources :offers , only: [:index , :show] 
+resources :checks , only: [:index , :show]
+
+
 
 end

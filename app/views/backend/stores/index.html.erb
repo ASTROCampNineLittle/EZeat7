@@ -1,1 +1,17 @@
 <h1>分店清單</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+ 
+  <% @stores.each do |store| %>
+    <tr>
+      <td><%= store.name %></td>
+      <td><%= store.type %></td>
+      <td><%= store.email %></td>
+      <td><%= store.intro %></td>
+    </tr>
+  <% end %>
+</table>

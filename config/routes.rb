@@ -5,6 +5,7 @@ devise_for :companies
 devise_for :users
 
 root 'pages#index'
+get 'search', to: 'pages#search'
 
 namespace :backend do
   shallow do
@@ -20,5 +21,9 @@ end
 
 
 resources :stores
+resources :offers , only: [:index , :show] 
+resources :checks , only: [:index , :show]
+
+
 
 end

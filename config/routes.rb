@@ -7,11 +7,18 @@ devise_for :users
 root 'pages#index'
 get 'search', to: 'pages#search'
 
-
-resources :companies do
-  resources :projects
-  resources :stores
+namespace :backend do
+  shallow do
+    resources :companies do
+      resources :stores do
+      #   resources :projects do
+      #     resources :offers
+      #   end
+      end
+    end
+  end
 end
+
 
 resources :stores
 resources :offers , only: [:index , :show] 

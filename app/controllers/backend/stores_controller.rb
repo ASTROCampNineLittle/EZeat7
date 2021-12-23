@@ -7,20 +7,17 @@ class Backend::StoresController < ApplicationController
   end
 
   def new
-    @store = store.new
+    @store = Store.new
   end
 
   def create
-    @store = store.new(store_params)
+    @store = Store.new(store_params)
 
     if @store.save
       redirect_to backend_company_stores_path(params[:company_id]), notice: '新增分店成功'
     else
       render :new
     end
-  end
-
-  def show
   end
 
   def update

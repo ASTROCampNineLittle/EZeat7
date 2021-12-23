@@ -3,7 +3,7 @@ class StoresController < ApplicationController
   def index
   end
 
-  def booking
+  def show
   end
 
 end

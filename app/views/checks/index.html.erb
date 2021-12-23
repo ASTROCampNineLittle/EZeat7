@@ -115,3 +115,17 @@
 <% end %>
 
 </div>
+
+
+<%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
+
+
+    <%= @form_info %>
+    <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID] %>
+    <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
+    <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>
+    <%= form.text_field :Version, value: @form_info[:Version] %>
+
+    <%= form.submit %>  
+
+<% end %>

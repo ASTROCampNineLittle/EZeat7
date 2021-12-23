@@ -9,12 +9,12 @@ class ChecksController < ApplicationController
   end
   
   def create
-    response = Newebpay::Mpgresponse.new(params[:TradeInfo])
+    @response = Newebpay::Mpgresponse.new(params[:TradeInfo])
     # render html:response.result
     # @Order = Order.new(response)
     # if Newebpay::Mpgresponse.new(params).success?
-      if response.status === "SUCCESS"
-        flash.now[:notice] = "購買票卷成功！"    
+      # if response.status === "SUCCESS"
+      #   flash.now[:notice] = "購買票卷成功！"    
         # t.integer :user_id
         # t.integer :reserve_id
         # t.string :name
@@ -32,9 +32,9 @@ class ChecksController < ApplicationController
         # t.integer :card4No
 
         # order = Order.find_by(slug: response.result[:MerchantOrderNo]).update(card_4no: response.result[:Card4no], )
-      else
-        flash.now[:notice] = "購買票卷失敗！"  
-      end
+      # else
+      #   flash.now[:notice] = "購買票卷失敗！"  
+      # end
   end
 
 end

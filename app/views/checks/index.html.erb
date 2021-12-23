@@ -77,7 +77,7 @@
 
 <h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">填寫訂位資料</h3>
 
-<%= form_with class:"py-10" do |form| %>
+<%= form_with class:"py-10", url: "http://localhost:3000/payments/new", method: "get" do |form| %>
 
 		<div class="md:flex md:items-center mb-6">
 			<div class="md:w-1/6">
@@ -116,16 +116,3 @@
 
 </div>
 
-
-<%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
-
-
-    <%= @form_info %>
-    <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID] %>
-    <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
-    <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>
-    <%= form.text_field :Version, value: @form_info[:Version] %>
-
-    <%= form.submit %>  
-
-<% end %>

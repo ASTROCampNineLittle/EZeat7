@@ -8,7 +8,6 @@ root 'pages#index'
 get 'search', to: 'pages#search'
 
 namespace :backend do
-  shallow do
     resources :companies do
       resources :stores, except: [:show ] do
       #   resources :projects do
@@ -16,7 +15,6 @@ namespace :backend do
       #   end
       end
     end
-  end
 end
 
 

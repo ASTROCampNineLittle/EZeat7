@@ -1,12 +1,9 @@
 Rails.application.routes.draw do
 
-devise_for :users, controllers: { users: 'users/profile' }
-resources :users
-
-namespace :users do
-  resources :profile, only: [:show ] do
-  end
-end
+devise_for :users, controllers: { 
+  registrations: 'users/users',
+}
+resources :users, only: [:index, :show, :create]
 
 root 'pages#index'
 get 'search', to: 'pages#search'

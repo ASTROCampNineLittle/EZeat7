@@ -19,13 +19,31 @@
           <input type="hidden" name="remember" value="true">
             <div class="rounded-md shadow-sm -space-y-px">
               <div class="field">
+                <label for="tele" class="sr-only">大名</label>
+                  <%= f.label :username, "大名" %><br />
+                  <%= f.text_field :username, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+              </div>
+              <div class="field">
+                <label for="tele" class="sr-only">電話</label>
+                  <%= f.label :tele, "電話" %><br />
+                  <%= f.text_field :tele, autofocus: true, class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+              </div>
+              <div class="field">
+                <label for="tele" class="sr-only">性別</label>
+                <%= f.label :gender, "性別" %><br />
+                <div class="flex mx-auto h-8">
+                  <%= f.radio_button :gender, 0, :checked => true, class: "appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain cursor-pointer" %>男
+                  <%= f.radio_button :gender, 1, :checked => true, class: "appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat ml-4 bg-center bg-contain cursor-pointer" %>女
+                </div>
+              </div>          
+              <div class="field">
                 <label for="email-address" class="sr-only">信箱</label>
-                  <%= f.label :信箱 %><br />
+                  <%= f.label :email, "信箱" %><br />
                   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
               </div>
               <div class="field">
                 <label for="password" class="sr-only">密碼</label>
-                  <%= f.label :密碼 %>
+                  <%= f.label :password, "密碼" %>
                   <% if @minimum_password_length %>
                   <em>(最少需要<%= @minimum_password_length %>碼)</em>
                   <% end %><br />
@@ -46,11 +64,9 @@
                 </svg>
               </span>
               <div class="actions">
-                <%= f.submit value="註冊" %>
+                <%= f.submit value="註冊", notice: "註冊成功" %>
               </div>
             </button>
-              <%# 待處理：由devise 邏輯判斷產生的partial render %>
-              <%= render "devise/shared/links" %>
           </div>
         </form>
       </div>

@@ -18,12 +18,21 @@
       </div>
 
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <% if signed_in? %>
+        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
+          <%= current_user.username %>，您好
+        </div>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
-          <%= link_to "登入", user_session_path %>
+          <%= button_to "登出", destroy_user_session_path, method: 'delete', notice: "登出成功" %>
+        </div>
+        <% else %>
+        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+          <%= link_to "登入", user_session_path, notice: "登入成功" %>
         </div>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
           <%= link_to "註冊", new_user_registration_path %>
         </div>
+        <% end %>
       </div>
 
       <nav class="hidden md:flex space-x-10">

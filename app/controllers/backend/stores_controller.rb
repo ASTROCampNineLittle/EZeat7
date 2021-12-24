@@ -24,26 +24,24 @@ class Backend::StoresController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:company_id])
-   
+    @store = Store.find(params[:id])
+    
   end
 
   def update
-    @company = Company.find(params[:company_id])
     @store = Store.find(params[:id])
 
     if @store.update(store_params)
-      redirect_to backend_company_stores_path(@company, @store), notice: '修改分店成功'
+      redirect_to backend_company_stores_path(params[:id]), notice: '修改分店成功'
     else
       render :edit
     end
   end
 
   def destroy
-    company = Company.find(params[:company_id])
     store = Store.find(params[:id])
     store.destroy
-    redirect_to backend_company_stores_path(params[:company_id]), notice: '刪除成功'
+    redirect_to backend_company_stores_path(params[:id]), notice: '刪除成功'
   end
 
 

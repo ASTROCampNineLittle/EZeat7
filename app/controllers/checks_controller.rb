@@ -31,7 +31,9 @@ class ChecksController < ApplicationController
         # t.integer :Amt
         # t.integer :card4No
 
-        # order = Order.find_by(slug: response.result[:MerchantOrderNo]).update(card_4no: response.result[:Card4no], )
+        order = Order.find_by(slug: response.result[:MerchantOrderNo]).update(card_4no: response.result[:Card4no], )
+
+        
       # else
       #   flash.now[:notice] = "購買票卷失敗！"  
       # end

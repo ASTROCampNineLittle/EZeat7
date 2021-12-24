@@ -23,15 +23,17 @@ module Newebpay
 
     private
     
-    def ezeat_ramdom_number
-      random = rand(0...1000).to_s
-      ezeat = "ezeat2021"
-      return ezeat.insert(-1,random)
+    def ezeat_random_number
+      ezeat = "ezeat"
+      timestamp = Time.now.strftime("%m%d%k%M")
+      ezeat_time = ezeat.insert(-1,timestamp)
+      number = rand(0...1000).to_s
+      return ezeat_time_random = ezeat_time.insert(-1,number)
     end
 
     def set_info()
       @info[:MerchantID] = @merchant_id
-      @info[:MerchantOrderNo] = ezeat_ramdom_number.to_s
+      @info[:MerchantOrderNo] = ezeat_random_number.to_s
       @info[:Amt] = 100
       @info[:ItemDesc] = "5x餐卷好好吃"
       @info[:Email] = "dreamorange830@gmail.com"
@@ -42,7 +44,6 @@ module Newebpay
       @info[:TimeStamp] = Time.now.to_i 
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
-      # request
       @info[:ReturnURL] = "http://localhost:3000/checks"
       @info[:NotifyURL] = ""
       @info[:LoginType] = 0 

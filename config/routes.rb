@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
+devise_for :users, controllers: { users: 'users/profile' }
+resources :users
 
-devise_for :companies
-devise_for :users
+namespace :users do
+  resources :profile, only: [:show ] do
+  end
+end
 
 root 'pages#index'
 get 'search', to: 'pages#search'

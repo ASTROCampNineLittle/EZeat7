@@ -2,7 +2,6 @@
 
 <%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
 
-    <%= @form_info %>
     <%= form.text_field :MerchantID, value: @form_info[:MerchantID] %>
     <%= form.text_field :TradeInfo, value: @form_info[:TradeInfo] %>
     <%= form.text_field :TradeSha, value: @form_info[:TradeSha] %>

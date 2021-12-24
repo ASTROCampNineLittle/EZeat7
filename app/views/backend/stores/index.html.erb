@@ -32,6 +32,9 @@
             <button >
               <%= button_to "刪除分店", backend_store_path(store), method: :delete, data: {confirm: "確定刪除?"}, class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"  %>
             </button>
+            <button >
+              <%= button_to "新增方案", new_backend_store_dish_path(store),method: 'get', class:"bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 border border-red-500 rounded"  %>
+            </button>
           </td>
         </tr>
       <% end %>

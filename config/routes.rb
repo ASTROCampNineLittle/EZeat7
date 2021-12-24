@@ -14,10 +14,12 @@ get 'search', to: 'pages#search'
 namespace :backend do
   shallow do
     resources :companies do
-      resources :stores, except: [:show ] do
-      #   resources :projects do
-      #     resources :offers
-      #   end
+      shallow do
+        resources :stores, except: [:show ] do
+          resources :dishes do
+            # resources :offers
+          end
+        end
       end
     end
   end

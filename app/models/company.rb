@@ -1,7 +1,9 @@
 class Company < ApplicationRecord
+
+
   has_many :stores
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  # devise :database_authenticatable, :registerable,
-  #        :recoverable, :rememberable, :validatable
+
+  validates :name, :address, :tele,:manager_name, uniqueness: true, presence: true 
+  validates :email, uniqueness: true, presence: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: "請填入正確email格式"}
+
 end

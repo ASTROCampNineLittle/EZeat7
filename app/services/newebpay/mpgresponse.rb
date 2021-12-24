@@ -5,8 +5,8 @@ module Newebpay
 
     def initialize(params)
       # 解密需要 key 跟 Hash 來解開
-      @key = "I2aNLz8ZvTIoZ0dFmdUoiuZnHOLXOuRb"
-      @iv = "CsgvvcZDk7x1OkcP"
+      @key = ENV["newebpay_key"] 
+      @iv  = ENV["newebpay_iv"] 
 
       response = decrypy(params)
       # 將藍新回傳的 params 丟到 decrypy 做解密

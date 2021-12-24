@@ -6,6 +6,8 @@ devise_for :users
 
 root 'pages#index'
 get 'search', to: 'pages#search'
+get 'myorder', to: 'pages#myorder'
+get 'verification', to: 'pages#verification'
 
 namespace :backend do
   shallow do
@@ -24,7 +26,5 @@ resources :stores
 resources :offers , only: [:index , :show] 
 resources :checks , only: [:index , :show]
 
-get 'myorder', to: 'stores#myorder'
-get 'verification', to: 'stores#verification'
 
 end

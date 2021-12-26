@@ -1,5 +1,6 @@
 <div class="container mx-auto max-w-screen-md">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
     <div class="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div class="max-w-md w-full space-y-8">
         <div>
@@ -19,13 +20,13 @@
             <div class="rounded-md shadow-sm -space-y-px">
               <div class="field">
                 <label for="email-address" class="sr-only">信箱</label>
-                  <%= f.label :email, "信箱" %><br />
+                  <%= f.label :信箱 %><br />
                   <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
               </div>
               <div class="field">
                 <label for="password" class="sr-only">密碼</label>
-                  <%= f.label :password, "密碼" %><br />
-                  <%= f.password_field :password, autocomplete: "current-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
+                  <%= f.label :密碼 %><br />
+                  <%= f.password_field :密碼, autocomplete: "new-password", class: "appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" %>
               </div>
             </div>
           <div class="flex items-center justify-between">
@@ -52,9 +53,11 @@
                 </svg>
               </span>
               <div class="actions">
-                <%= f.submit "登入" %>
+                <%= f.submit value="登入" %>
               </div>
             </button>
+          <%# 待處理：由devise 邏輯判斷產生的partial render %>
+          <%= render "devise/shared/links" %>
           </div>
         </form>
       </div>

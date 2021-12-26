@@ -1,12 +1,16 @@
 class ChecksController < ApplicationController
   
+<<<<<<< HEAD
   skip_before_action :verify_authenticity_token, :only => [:create]
 
+=======
+>>>>>>> e935b7d (feat/view_booking)
   def index
   end
 
   def show
   end
+<<<<<<< HEAD
   
   def create
     @response = Newebpay::Mpgresponse.new(params[:TradeInfo])
@@ -16,5 +20,7 @@ class ChecksController < ApplicationController
                           Paytime: response.result[:Paytime], 
                           TradeNo: response.result[:TradeNo],)
   end
+=======
+>>>>>>> e935b7d (feat/view_booking)
 
 end

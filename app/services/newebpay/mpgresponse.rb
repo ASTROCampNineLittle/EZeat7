@@ -5,8 +5,8 @@ module Newebpay
 
     def initialize(params)
       # 解密需要 key 跟 Hash 來解開
-      @key = "I2aNLz8ZvTIoZ0dFmdUoiuZnHOLXOuRb"
-      @iv = "CsgvvcZDk7x1OkcP"
+      @key = ENV["newebpay_key"] 
+      @iv  = ENV["newebpay_iv"] 
 
       response = decrypy(params)
       # 將藍新回傳的 params 丟到 decrypy 做解密
@@ -14,12 +14,11 @@ module Newebpay
       @status = response['Status']
       @message = response['Message']
       @result = response['Result']
-
       @order_no = @result["MerchantOrderNo"]
       @trade_no = @result["TradeNo"]
       @amt = @result["Amt"]
-      @pay_time = @result["PayTime"]  # 交易時間
-      @card_last4num = @result["Card4No"]  # 信用卡號末四碼
+      @pay_time = @result["PayTime"]  
+      @card_last4num = @result["Card4No"]
 
     end
 

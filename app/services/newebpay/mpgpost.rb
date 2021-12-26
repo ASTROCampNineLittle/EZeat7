@@ -24,10 +24,10 @@ module Newebpay
     private
     
     def ezeat_random_number
-      ezeat = "ezeat"
+      ezeat = "EZeat"
       timestamp = Time.now.strftime("%m%d%k%M")
       ezeat_time = ezeat.insert(-1,timestamp)
-      number = rand(0...1000).to_s
+      number = rand(0...999).to_s.rjust(3, '0')
       return ezeat_time_random = ezeat_time.insert(-1,number)
     end
 
@@ -37,18 +37,22 @@ module Newebpay
       @info[:Amt] = 100
       @info[:ItemDesc] = "5x餐卷好好吃"
       @info[:Email] = "dreamorange830@gmail.com"
-      # info[:MerchantOrderNo] = order.slug
-      # info[:Amt] = order.amount
-      # info[:ItemDesc] = order.name 
-      # info[:Email] = order.email 
+      # @info[:Amt] = project.price
+      # @info[:ItemDesc] = project.name 
+      # @info[:Email] = user.email
       @info[:TimeStamp] = Time.now.to_i 
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
       @info[:ReturnURL] = "http://localhost:3000/checks"
+      # id: params[:id], order: 123 => project/3&order=123
       @info[:NotifyURL] = ""
       @info[:LoginType] = 0 
-      @info[:CREDIT] =  1,
-      @info[:VACC] = 1
+      @info[:CREDIT] =  1
+      @info[:VACC] = 0
+      # ----選填區-----
+      # @info[:ClientBackURL] =  "返回上一頁的網址"
+      # @info[:OrderComment]  =  "字數上限300字,可以帶資料庫的餐卷描述"
+      # ----選填區-----
     end
     
     def trade_info
@@ -85,10 +89,3 @@ module Newebpay
     end
   end
 end
-
-# # ----選填區-----
-#   LINEPAY: 1,
-#   OrderComment: "字數上限300字,可以帶入資料庫的餐卷資訊"
-#   ClientBackURL: "返回上一頁的網址"
-# # ----選填區-----
-

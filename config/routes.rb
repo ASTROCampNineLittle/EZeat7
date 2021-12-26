@@ -26,7 +26,12 @@ end
 
 resources :stores
 resources :offers , only: [:index , :show] 
-resources :checks , only: [:index , :show, :create]
-resources :payments , only: [:index, :new] 
+resources :checks , only: [:index , :show, :create] 
+
+resources :payments , only: [:index, :new] do
+  post :confirm
+end
+
+
 
 end

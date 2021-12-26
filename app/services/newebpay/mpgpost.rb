@@ -43,7 +43,7 @@ module Newebpay
       @info[:TimeStamp] = Time.now.to_i 
       @info[:RespondType] = "JSON"
       @info[:Version] = "1.5"
-      @info[:ReturnURL] = "http://localhost:3000/checks"
+      @info[:ReturnURL] = "http://localhost:3000/payments/:payment_id/confirm"
       # id: params[:id], order: 123 => project/3&order=123
       @info[:NotifyURL] = ""
       @info[:LoginType] = 0 

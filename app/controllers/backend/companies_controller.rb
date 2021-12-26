@@ -25,13 +25,19 @@ class Backend::CompaniesController < ApplicationController
   end
 
   def update
-    company = Company.new(company_params)
+    company = Company.find(params[:id])
 
     if company.update(company_params)
       redirect_to backend_company_path(company), notice: '修改公司成功'
     else
       render :edit
     end
+  end
+
+  def destroy
+    @company = Company.find(params[:id])
+    @company.destroy
+    redirect_to root_path
   end
 
   private

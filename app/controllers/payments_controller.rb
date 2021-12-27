@@ -12,7 +12,6 @@ class PaymentsController < ApplicationController
 
   def confirm
     @response = Newebpay::Mpgresponse.new(params[:TradeInfo])
-    
     # @order = Order.find_by(MerchanOrderNo: response.result[:MerchantOrderNo])
     #               .update(card_4no: response.result[:Card4no], 
     #                       Paytime: response.result[:Paytime], 

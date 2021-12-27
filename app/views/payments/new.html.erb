@@ -1,16 +1,8 @@
-<h3>藍新交易換面轉跳中</h3>
+<h3 class="text-center text-2xl tracking-wider py-20">藍新交易換面轉跳中...</h3>
 
-<%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post" do |form| %>
-
+<%= form_with url: "https://ccore.newebpay.com/MPG/mpg_gateway", method: "post", data: { controller: "autosubmit", "autosubmit-target": "form" } do |form| %>
     <%= form.hidden_field :MerchantID, value: @form_info[:MerchantID] %>
     <%= form.hidden_field :TradeInfo, value: @form_info[:TradeInfo] %>
     <%= form.hidden_field :TradeSha, value: @form_info[:TradeSha] %>
     <%= form.hidden_field :Version, value: @form_info[:Version] %>
-
-    <div data-controller="auto_submit">
-    <%#= form.submit , data-auto_submit-target="submit" , data-action: "submit->auto_submit#submit" %>  
-    <%= form.submit '送出並轉跳' %>  
-    </div>
-
-
 <% end %>

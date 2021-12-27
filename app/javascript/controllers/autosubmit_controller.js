@@ -1,10 +1,10 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "submit" ]
+  static targets = [ "form" ]
 
-  auto_submit() {
-    click();
+  initialize() {
+    this.formTarget.submit();
   }
 
 }

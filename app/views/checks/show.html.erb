@@ -77,32 +77,32 @@
 
 <h3 class="bg-gray-300 text-black text-lg py-3 pl-6 border-b-2">填寫訂位資料</h3>
 
-<%= form_with class:"py-10", url: "http://localhost:3000/payments/new", method: "get" do |form| %>
-
+<%= form_with model: @user ,class:"py-10", url: "http://localhost:3000/payments/new", method: "get" do |form| %>
+    <%#  下列三個欄位預設抓登入的user,目前是設定抓1號id的使用者 %>
 		<div class="md:flex md:items-center mb-6">
 			<div class="md:w-1/6">
-				<%= form.label :name, '訂位人', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+				<%= form.label :username, '訂位人', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
 			</div>
 			<div class="md:w-9/12">
-				<%= form.text_field :name, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+				<%= form.text_field :username , class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
 			</div>
 		</div>
 		 
 		<div class="md:flex md:items-center mb-6">
 			<div class="md:w-1/6">
-				<%= form.label :name, '電話', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+				<%= form.label :tele, '電話', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
 			</div>
 			<div class="md:w-9/12">
-				<%= form.text_field :name, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+				<%= form.text_field :tele, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
 			</div>
 		</div>
 		 
 		<div class="md:flex md:items-center mb-6">
 			<div class="md:w-1/6">
-				<%= form.label :name, 'E-mail', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
+				<%= form.label :email, 'E-mail', class: 'block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4' %>
 			</div>
 			<div class="md:w-9/12">
-				<%= form.text_field :name, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
+				<%= form.text_field :email, class: 'bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500' %>
 			</div>
 		</div>
 		 

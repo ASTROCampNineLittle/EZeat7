@@ -3,9 +3,10 @@
 // ./bin/rails generate stimulus controllerName
 
 import { application } from "./application"
-
 import HelloController from "./hello_controller"
 import AutosubmitController from "./autosubmit_controller"
+import SlideshowController from "./slideshow_controller"
 
 application.register("hello", HelloController)
 application.register("autosubmit", AutosubmitController)
+application.register("slideshow" , SlideshowController )

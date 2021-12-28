@@ -7,14 +7,19 @@ resources :users, only: [:index, :show, :create]
 
 root 'pages#index'
 get 'search', to: 'pages#search'
+get 'myorder', to: 'pages#myorder'
+get 'verification', to: 'pages#verification'
+get 'channel', to: 'pages#channel'
 
 namespace :backend do
   shallow do
     resources :companies do
-      resources :stores, except: [:show ] do
-      #   resources :projects do
-      #     resources :offers
-      #   end
+      shallow do
+        resources :stores, except: [:show ] do
+          resources :dishes do
+            # resources :offers
+          end
+        end
       end
     end
   end

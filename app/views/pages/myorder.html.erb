@@ -22,20 +22,20 @@
 			<div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
 				<table class="min-w-full leading-normal order-table table">
 					<thead>
-						<tr class="bg-orange-200 border-b-2 border-gray-200 font-semibold text-gray-600 text-left text-sm">
-							<th class="px-3 py-3 uppercase tracking-wider">
+						<tr class="bg-orange-200 border-b-2 border-gray-200 text-gray-600 text-left text-xs">
+							<th class="px-3 py-3 tracking-wider">
 								餐廳
 							</th>
-							<th class="px-3 py-3 uppercase tracking-wider">
+							<th class="px-3 py-3 tracking-wider">
 								方案名稱
 							</th>
-							<th class="px-3 py-3 uppercase tracking-wider">
+							<th class="px-3 py-3 tracking-wider">
 								預訂日期
 							</th>
-							<th class="px-3 py-3 uppercase tracking-wider">
+							<th class="px-3 py-3 tracking-wider">
 								張數
 							</th>
-							<th class="px-3 py-3 uppercase tracking-wider">
+							<th class="px-3 py-3 tracking-wider">
 								狀態
 							</th>
 						</tr>
@@ -324,21 +324,21 @@
 (function(document) {
 	'use strict';
 
-	const SearchFilter = (function(Arr) {
-		let _input;
+	const searchFilter = (function(Arr) {
+		let inputValue;
 
-		function _onInputEvent(e) {
-			_input = e.target;
-			const tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+		function onInputEvent(e) {
+			inputValue = e.target;
+			const tables = document.getElementsByClassName(inputValue.getAttribute('data-table'));
 			Arr.forEach.call(tables, function(table) {
 				Arr.forEach.call(table.tBodies, function(tbody) {
-					Arr.forEach.call(tbody.rows, _filter);
+					Arr.forEach.call(tbody.rows, filter);
 				});
 			});
 		}
 
-		function _filter(row) {
-			const text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+		function filter(row) {
+			const text = row.textContent.toLowerCase(), val = inputValue.value.toLowerCase();
 			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
 		}
 
@@ -346,7 +346,7 @@
 			init: function() {
 				const inputs = document.getElementsByClassName('search-fliter');
 				Arr.forEach.call(inputs, function(input) {
-					input.oninput = _onInputEvent;
+					input.oninput = onInputEvent;
 				});
 			}
 		};
@@ -354,7 +354,7 @@
 
 	document.addEventListener('readystatechange', function() {
 		if (document.readyState === 'complete') {
-			SearchFilter.init();
+			searchFilter.init();
 		}
 	});
 

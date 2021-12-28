@@ -10,11 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 2021_12_26_044211) do
-=======
-ActiveRecord::Schema.define(version: 2021_12_24_133047) do
->>>>>>> de40b47e9f1b14aa52dcd6aa8a07c58b19f8eaf2
+ActiveRecord::Schema.define(version: 2021_12_28_040142) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +34,24 @@ ActiveRecord::Schema.define(version: 2021_12_24_133047) do
     t.text "intro"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "open_date_id", null: false
+    t.time "ok_time"
+    t.integer "capacity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["open_date_id"], name: "index_offers_on_open_date_id"
+  end
+
+  create_table "open_dates", force: :cascade do |t|
+    t.integer "dish_id"
+    t.date "ok_date"
+    t.boolean "is_open"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["dish_id"], name: "index_open_dates_on_dish_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -100,4 +114,5 @@ ActiveRecord::Schema.define(version: 2021_12_24_133047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "offers", "open_dates"
 end

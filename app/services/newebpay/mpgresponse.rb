@@ -14,12 +14,11 @@ module Newebpay
       @status = response['Status']
       @message = response['Message']
       @result = response['Result']
-
       @order_no = @result["MerchantOrderNo"]
       @trade_no = @result["TradeNo"]
       @amt = @result["Amt"]
-      @pay_time = @result["PayTime"]  # 交易時間
-      @card_last4num = @result["Card4No"]  # 信用卡號末四碼
+      @pay_time = @result["PayTime"]  
+      @card_last4num = @result["Card4No"]
 
     end
 

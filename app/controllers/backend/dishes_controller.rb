@@ -33,7 +33,7 @@ class Backend::DishesController < ApplicationController
     @dish = Dish.find(params[:id])
 
     if @dish.update(dish_params)
-      redirect_to backend_store_dishes_path(@dish.store), notice: '修改方案成功'
+      redirect_to backend_store_dishes_path(@dish.store)
     else
       render :edit
     end

@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <%= form_with model: [:backend, @company], class: " " do |form| %>
+  <%= form_with model: @company,url: backend_companies_path, class: " " do |form| %>
 
   <div class="md:flex md:items-center mb-6">
     <div class="md:w-1/3">

@@ -15,9 +15,13 @@ namespace :backend do
   shallow do
     resources :companies do
       shallow do
-        resources :stores, except: [:show ] do
+        resources :stores, except: [:show] do
           resources :dishes do
-            # resources :offers
+            shallow do
+              resources :open_dates, except: [:show] do
+                resources :offers, except: [:show]
+              end
+            end
           end
         end
       end

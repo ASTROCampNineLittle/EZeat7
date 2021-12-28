@@ -1,0 +1,2 @@
+module Backend::OffersHelper
+end

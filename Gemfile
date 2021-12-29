@@ -3,16 +3,25 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby "3.0.0"
 
-# Bundle friendly_id
+# Create pretty URLs and work with human-friendly strings as if they were numeric ids
 gem 'friendly_id', '~> 5.4', '>= 5.4.2'
 
-#Bundle Figaro Enum Pundit Devise Bullet Kaminari AASM
+# A flexible authentication
 gem 'devise', '~> 4.8', '>= 4.8.1'
-gem 'bullet', '~> 7.0'
+
+# Object oriented authorization
 gem 'pundit', '~> 2.1', '>= 2.1.1'
+
+# Enum-like behavior
 gem 'ruby-enum', '~> 0.9.0'
+
+# A continuation of the acts-as-state-machine
 gem 'aasm', '~> 5.2'
+
+# As the paginator
 gem 'kaminari', '~> 1.2', '>= 1.2.1'
+
+# Configuration using ENV and a single YAML file
 gem 'figaro', '~> 1.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
@@ -66,6 +75,12 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+
+  # Helper for killing N+1 queries and unused eager loading.
+  gem 'bullet', '~> 7.0'
+
+  # For generating fake data
+  gem 'faker', '~> 2.19'
 end
 
 group :development do

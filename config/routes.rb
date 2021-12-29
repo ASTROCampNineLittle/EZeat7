@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
 devise_for :users, controllers: { 
-  registrations: 'users/users',
+  registrations: 'users/registrations',
 }
+
+devise_scope :user do
+  get 'user/profile', to: 'users/registrations#edit'
+end
+
 resources :users, only: [:index, :show, :create]
 
 root 'pages#index'

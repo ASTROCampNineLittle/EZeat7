@@ -10,7 +10,7 @@ class Backend::CompaniesController < ApplicationController
     company = Company.new(company_params)
 
     if company.save
-      redirect_to backend_company_path(company), notice: '新增公司成功'
+      redirect_to backend_company_stores_path(company), notice: '新增公司成功'
     else
       render :new
     end
@@ -28,7 +28,7 @@ class Backend::CompaniesController < ApplicationController
     company = Company.find(params[:id])
 
     if company.update(company_params)
-      redirect_to backend_company_path(company), notice: '修改公司成功'
+      redirect_to backend_company_stores_path(company), notice: '修改公司成功'
     else
       render :edit
     end

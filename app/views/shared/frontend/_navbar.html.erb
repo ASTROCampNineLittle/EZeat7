@@ -20,12 +20,24 @@
       </div>
 
       <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+        <% if signed_in? %>
+        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-yellow-200 hover:text-gray-900 p-2 m-1 rounded-md">
+          <%= current_user.username %>，您好
+        </div>
+        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+          <%= link_to "個人檔案", user_profile_path %>
+        </div>
+        <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
+          <%= button_to "登出", destroy_user_session_path, method: 'delete', notice: "登出成功" %>
+        </div>
+        <% else %>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
           <%= link_to "登入", user_session_path %>
         </div>
         <div class="whitespace-nowrap text-base font-medium text-gray-500 bg-white hover:text-gray-900 p-2 m-1 rounded-md">
           <%= link_to "註冊", new_user_registration_path %>
         </div>
+        <% end %>
       </div>
 
       <nav class="md:mr-auto">
@@ -58,7 +70,9 @@
                 <%= link_to "首頁", root_path %>
               </div>
               <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-1">常見問題</div>
-              <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-1">餐廳合作</div>
+              <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-1">
+                <%= link_to "餐廳合作", new_backend_company_path %>
+              </div>
               <div class="text-gray-700 block px-2 py-2 mx-2 text-sm hover:bg-gray-100 hover:rounded-md" role="menuitem" tabindex="-1" id="menu-item-2">部落格文章</div>
             </div>
           </div>
